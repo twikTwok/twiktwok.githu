@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- modal css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- modal css end  -->
+    <script
+      src="https://kit.fontawesome.com/aae682fcfb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>twik-twok</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
+  </head>
+  <body>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="swiper-main">
+        <div class="swiper-slide intro-screen" id="intro">
+          <h3 class="logo">Twik Twok</h3>
+          <p>Swipe videos from twitter</p>
+
+          <i
+            class="fa fa-chevron-down animate__animated animate__bounce animate__delay-1s"
+            aria-hidden="true"
+          ></i>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="swiper-slide second-slide">
+            <h1 class="logo">swipe up</h1>
+            <p>tweet a video #twiktwok for feature</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal -->
+    <div id="modal1" class="modal bottom-sheet">
+      <h4>Comment on twitter #twikTwok</h4>
+      <div class="modal-content">
+        <!-- <iframe src="https://twitter.com/i/status/1265314235158011906">
+        </iframe> -->
+
+        <blockquote class="twitter-tweet">
+          <p lang="en" dir="ltr">
+            trying out a bit
+            <a href="https://t.co/Dit7SkKyQw">pic.twitter.com/Dit7SkKyQw</a>
+          </p>
+          &mdash; alistair green (@mralistairgreen)
+          <a
+            href="https://twitter.com/mralistairgreen/status/1265314235158011906?ref_src=twsrc%5Etfw"
+            >May 26, 2020</a
+          >
+        </blockquote>
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script>
+      </div>
+    </div>
+
+    <!-- modal scripts start -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- modal scripts end -->
+
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.fa-chevron-down {
+  font-size: 3rem;
+}
+
+.logo {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 5em;
+  animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    text-shadow: -4.5px -4.5px 0 #0ff, 4.5px 4.5px 0 #f00;
+  }
+  25% {
+    font-family: "Courier Prime", monospace;
+    text-transform: lowercase;
+    color: #55acee;
+    text-shadow: 4.5px 4.5px 0 #0ff, -4.5px -4.5px 0 #f00;
+  }
+}
+
+p,
+i {
+  text-shadow: black 0px 0px 10px;
+}
+
+body {
+  color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  margin: 0;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.intro-screen {
+  flex-direction: column;
+
+  background-size: cover;
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  background-color: black;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.second-slide {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-image: url("https://media.giphy.com/media/47Ja8ylYeaoyAXVcSA/giphy.gif");
+}
+.welcome-screen {
+  background: #fff;
+  color: black;
+}
+
+.intro-screen p {
+  font-family: "Roboto", sans-serif;
+}
+
+.swipe-up-screen {
+  flex-direction: column;
+  background-image: url("https://media.giphy.com/media/47Ja8ylYeaoyAXVcSA/giphy.gif");
+  background-size: cover;
+}
+
+.swipe-up-constainer {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#overlay {
+  position: absolute;
+  right: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+
+  /* background-color: rgba(221, 221, 221, 0.3); */
+  width: 10%;
+  height: 80%;
+  padding: 10px 0;
+  z-index: 2147483647;
+}
+
+.avatar {
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: 50%;
+  border: 0.2rem solid white;
+}
+#overlay i,
+a {
+  margin-bottom: 0px;
+  font-size: 3rem;
+  opacity: 68%;
+}
+
+a {
+  color: white;
+}
+a:hover {
+  color: red;
+}
+#overlay p {
+  font-size: 0.9rem;
+  opacity: 90%;
+}
+.xnumber {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+#overlay-text {
+  position: absolute;
+  max-width: 60vw;
+  left: 5vw;
+  bottom: 8vh;
+  z-index: 2147483647;
+  display: flex;
+  text-align: left;
+
+  margin-bottom: 10%;
+
+  flex-direction: column;
+}
+#overlay-text p {
+  font-size: 1rem;
+}
+.description {
+  opacity: 85%;
+}
+
+.username {
+  font-weight: 600;
+}
+video {
+  z-index: 1;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+/* modal css */
+
+#modal1 {
+  max-height: 90%;
+  margin: 0;
+  border: 2px solid black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: black;
+  text-shadow: none;
+  text-align: center;
+}
+#modal1 h4 {
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+#modal1 iframe {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.twitter-tweet {
+  margin: 0 auto;
+}
