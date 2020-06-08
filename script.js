@@ -148,7 +148,7 @@ mySwiper.on("reachEnd", function () {
   mySwiper.appendSlide(
     `<div class='swiper-slide' ">
      
-      <video  height="100%" id='${mySwiper.activeIndex}' loop >
+      <video  height="100%" id='${mySwiper.activeIndex}' muted autoplay loop >
             <source src="${
               arrOfVideos[mySwiper.activeIndex].url
             }" type="video/mp4">

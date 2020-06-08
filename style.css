@@ -25,7 +25,8 @@ body {
     text-shadow: -4.5px -4.5px 0 #0ff, 4.5px 4.5px 0 #f00;
   }
   25% {
-    font-family: "Courier Prime", monospace;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 700;
     text-transform: lowercase;
     color: #55acee;
     text-shadow: 4.5px 4.5px 0 #0ff, -4.5px -4.5px 0 #f00;
