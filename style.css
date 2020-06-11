@@ -14,7 +14,7 @@ body {
 
 .logo {
   color: #fff;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 5em;
   animation: animate 1.5s linear infinite;
 }
@@ -25,9 +25,11 @@ body {
     text-shadow: -4.5px -4.5px 0 #0ff, 4.5px 4.5px 0 #f00;
   }
   25% {
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 700;
-    text-transform: lowercase;
+    font-family: "Courier New", serif;
+
+    /* font-weight: 700;
+      font-style: normal; */
+
     color: #55acee;
     text-shadow: 4.5px 4.5px 0 #0ff, -4.5px -4.5px 0 #f00;
   }

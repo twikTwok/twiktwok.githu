@@ -143,64 +143,65 @@ var mySwiper = new Swiper(".swiper-container", {
   direction: "vertical",
   loop: false,
 });
+mySwiper.setGrabCursor();
 
 mySwiper.on("reachEnd", function () {
   mySwiper.appendSlide(
     `<div class='swiper-slide' ">
-     
-      <video  height="100%" id='${
-        mySwiper.activeIndex
-      }'  autoplay loop muted playsinline >
-            <source src="${
-              arrOfVideos[mySwiper.activeIndex].url
-            }" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-          Your browser does not support the video tag.
-          </video>
-  
-  
-  
+       
+        <video  height="100%" id='${
+          mySwiper.activeIndex
+        }'  autoplay loop muted playsinline controls>
+              <source src="${
+                arrOfVideos[mySwiper.activeIndex].url
+              }" type="video/mp4">
+              <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+            </video>
     
-         <div id="overlay-text">
-            <p class="username">@${
-              arrOfVideos[mySwiper.activeIndex].username
-            }</p><p class="description">${
+    
+    
+      
+           <div id="overlay-text">
+              <p class="username">@${
+                arrOfVideos[mySwiper.activeIndex].username
+              }</p><p class="description">${
       arrOfVideos[mySwiper.activeIndex].description
     }</p>
-        </div>
-  
-  
-  
-          <div id="overlay">
-        
-          <div class="overlay-item">
-          <a href="${
-            arrOfVideos[mySwiper.activeIndex].linkToProfile
-          }" target="_blank">
-     <img src="${
-       arrOfVideos[mySwiper.realIndex].avatar
-     }" class = "avatar" alt="user"/>
-      </a>
-       </div >
-           <div class="overlay-item">
-            <a class="modal-trigger" href="#modal1" > <i class="fas fa-heart"></i></a> <p class ="xnumber">100</p>
-           </div >
-          <div class="overlay-item">
-          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ftwiktwok.github.io&text=TwikTwok%20-%20twitter%20meets%20tik%20tok.%20Swipe%20through%20the%20best%20videos%20on%20twitter&hashtags=twikTwok">
-              <i class="fas fa-share"></i></a>
-              <p class ="xnumber">100</p>
-             
-              </div >
-          <div class="overlay-item">
-          <a class="modal-trigger" href="#modal1" > <i class="fas fa-comment-dots"></i></a> 
-            
-              <p class ="xnumber">100</p></div >
           </div>
-   
-         
-        </div>
     
-        </div>`
+    
+    
+            <div id="overlay">
+          
+            <div class="overlay-item">
+            <a href="${
+              arrOfVideos[mySwiper.activeIndex].linkToProfile
+            }" target="_blank">
+       <img src="${
+         arrOfVideos[mySwiper.realIndex].avatar
+       }" class = "avatar" alt="user"/>
+        </a>
+         </div >
+             <div class="overlay-item">
+               <i class="fa fa-volume-off" id="soundBtn"></i> <p class ="xnumber">100</p>
+             </div >
+            <div class="overlay-item">
+            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ftwiktwok.github.io&text=TwikTwok%20-%20twitter%20meets%20tik%20tok.%20Swipe%20through%20the%20best%20videos%20on%20twitter&hashtags=twikTwok">
+                <i class="fas fa-share"></i></a>
+                <p class ="xnumber">100</p>
+               
+                </div >
+            <div class="overlay-item">
+            <a class="modal-trigger" href="#modal1" > <i class="fas fa-comment-dots"></i></a> 
+              
+                <p class ="xnumber">100</p></div >
+            </div>
+     
+           
+          </div>
+      
+          </div>`
   );
 });
 
@@ -210,11 +211,14 @@ mySwiper.on("slideChange", function () {
   if (index === 0) {
     document.getElementById("0").play();
   } else if (index > 0) {
+    let modalURL = document.getElementById("modal-url");
+    modalURL.textContent = `yo man ${arrOfVideos[index].linkToProfile}`;
     let prevVid = document.getElementById(index - 1);
     prevVid.pause();
 
     let currentVid = document.getElementById(index);
     currentVid.play();
+    currentVid.muted = false;
     let nextVid = document.getElementById(index + 1);
     nextVid.pause();
   }
