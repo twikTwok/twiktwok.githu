@@ -4230,12 +4230,12 @@ mySwiper.on("slideChange", function () {
     prevVid.classList.add("videoDisplayNone");
 
     let currentVid = document.getElementById(index);
-    prevVid.classList.add("videoDisplay");
-    currentVid.play();
 
+    currentVid.play();
+    currentVid.classList.add("videoDisplay");
     let nextVid = document.getElementById(index + 1);
     nextVid.pause();
-    prevVid.classList.add("videoDisplayNone");
+    nextVid.classList.add("videoDisplayNone");
   }
 });
 
