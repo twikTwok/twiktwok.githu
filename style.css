@@ -8,7 +8,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.fa-chevron-down {
+.fa-chevron-up {
   font-size: 3rem;
 }
 
@@ -28,7 +28,7 @@ body {
     font-family: "Courier New", serif;
 
     /* font-weight: 700;
-      font-style: normal; */
+    font-style: normal; */
 
     color: #55acee;
     text-shadow: 4.5px 4.5px 0 #0ff, -4.5px -4.5px 0 #f00;
@@ -132,8 +132,8 @@ body {
 }
 
 .avatar {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
 
   border-radius: 50%;
   border: 0.2rem solid white;
@@ -214,4 +214,11 @@ video {
 }
 .twitter-tweet {
   margin: 0 auto;
+}
+
+.videoDisplayNone {
+  display: none;
+}
+.videoDisplay {
+  display: block;
 }
