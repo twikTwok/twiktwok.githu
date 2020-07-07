@@ -1,22 +1,55 @@
+:root {
+  --white-color: #fff;
+
+  --black-color: #161823;
+
+  --grey-color: #c1c1c1;
+  --red-color: #fe2c55;
+
+  --sans-serif-font: "Roboto", sans-serif;
+  --big-font: 3rem;
+  --normal-font: 1rem;
+}
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   position: relative;
   height: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--sans-serif-font);
 }
 
 .fa-chevron-up {
-  font-size: 3rem;
+  font-size: var(--big-font);
 }
 
 .logo {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  font-size: 5em;
+  color: var(--white-color);
+  font-family: var(--sans-serif-font);
+  font-size: 3em;
   animation: animate 1.5s linear infinite;
+}
+.logo-bird {
+  color: var(--white-color);
+  font-size: 3em;
+  animation: animateTwo 1.5s linear infinite;
+}
+.logline {
+  font-size: var(--normal-font);
+}
+@keyframes animateTwo {
+  0%,
+  100% {
+    text-shadow: -4.5px -4.5px 0 #0ff, 4.5px 4.5px 0 #f00;
+  }
+  25% {
+    /* font-weight: 700;
+    font-style: normal; */
+
+    text-shadow: 4.5px 4.5px 0 #0ff, -4.5px -4.5px 0 #f00;
+  }
 }
 
 @keyframes animate {
@@ -41,14 +74,35 @@ i {
 }
 
 body {
-  color: white;
-  font-family: sans-serif;
+  color: var(--white-color);
+  font-family: var(--sans-serif-font);
   font-size: 14px;
 
   margin: 0;
   padding: 0;
-  background-color: #000;
+  background-color: var(--black-color);
 }
+
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+#modalURL {
+  background-color: var(--red-color);
+  margin: var(--normal-font);
+  padding: var(--normal-font);
+  color: white;
+  text-shadow: none;
+  border-radius: 4px;
+}
+#modalURL:hover {
+  background-color: var(--black-color);
+}
+#postName {
+  color: var(--grey-color);
+  font-size: 0.8rem;
+}
+
 .swiper-container {
   width: 100%;
   height: 100%;
@@ -78,7 +132,7 @@ body {
   background-size: cover;
   font-family: "Courier Prime", monospace;
   font-weight: 700;
-  background-color: black;
+  background-color: var(--black-color);
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -93,12 +147,12 @@ body {
   background-image: url("https://media.giphy.com/media/47Ja8ylYeaoyAXVcSA/giphy.gif");
 }
 .welcome-screen {
-  background: #fff;
-  color: black;
+  background: var(--white-color);
+  color: var(--black-color);
 }
 
 .intro-screen p {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--sans-serif-font);
 }
 
 .swipe-up-screen {
@@ -120,7 +174,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  color: #fff;
+  color: var(--white-color);
   text-align: center;
   font-size: 2rem;
 
@@ -131,25 +185,37 @@ body {
   z-index: 2147483647;
 }
 
+.banner {
+  top: 2%;
+  margin: auto;
+  position: absolute;
+  z-index: 2147483647;
+  color: var(--grey-color);
+}
+.bold-span {
+  font-weight: bold;
+  opacity: 85%;
+}
+
 .avatar {
   width: 4rem;
   height: 4rem;
 
   border-radius: 50%;
-  border: 0.2rem solid white;
+  border: 0.2rem solid var(--white-color);
 }
 #overlay i,
 a {
   margin-bottom: 0px;
-  font-size: 3rem;
+  font-size: var(--big-font);
   opacity: 68%;
 }
 
 a {
-  color: white;
+  color: var(--white-color);
 }
 a:hover {
-  color: red;
+  color: var(--red-color);
 }
 #overlay p {
   font-size: 0.9rem;
@@ -157,7 +223,7 @@ a:hover {
 }
 .xnumber {
   margin-top: 0;
-  font-size: 1rem;
+  font-size: var(--normal-font);
 }
 
 #overlay-text {
@@ -168,20 +234,18 @@ a:hover {
   z-index: 2147483647;
   display: flex;
   text-align: left;
-
   margin-bottom: 10%;
-
   flex-direction: column;
 }
 #overlay-text p {
-  font-size: 1rem;
+  font-size: var(--normal-font);
 }
 .description {
   opacity: 85%;
 }
 
 .username {
-  font-weight: 600;
+  font-weight: bold;
 }
 video {
   z-index: 1;
@@ -194,23 +258,40 @@ video {
 /* modal css */
 
 #modal1 {
+  height: 90%;
   max-height: 90%;
   margin: 0;
-  border: 2px solid black;
+  border: 2px solid var(--black-color);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  color: black;
+  color: var(--black-color);
   text-shadow: none;
   text-align: center;
 }
+#modal1 h3 {
+  margin: var(--normal-font);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 #modal1 h4 {
-  margin: 1rem;
+  margin: var(--normal-font);
   font-size: 1.2rem;
+}
+#modal1 i {
+  text-shadow: none;
 }
 #modal1 iframe {
   margin: 0;
   width: 100vw;
   height: 100vh;
+}
+.modalCreator {
+  display: flex;
+  justify-content: center;
+  border: 2px solid var(--grey-color);
+  border-radius: 2px;
+  padding: 5px;
+  margin: 10px;
 }
 .twitter-tweet {
   margin: 0 auto;
@@ -221,4 +302,18 @@ video {
 }
 .videoDisplay {
   display: block;
+}
+.nag-slide {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  position: center;
+  background-image: url("https://media.giphy.com/media/cJ5OtsMFdudpSx6XAO/giphy.gif");
+  min-height: 100%;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
