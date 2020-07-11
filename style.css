@@ -177,8 +177,6 @@ body {
   color: var(--white-color);
   text-align: center;
   font-size: 2rem;
-
-  /* background-color: rgba(221, 221, 221, 0.3); */
   width: 10%;
   height: 80%;
   padding: 10px 0;
