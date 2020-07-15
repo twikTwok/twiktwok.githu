@@ -11,6 +11,7 @@ let currentVid;
 
 function toggleMuted() {
   muted = !muted;
+
   changeMuteVisually();
   changeMuteSound();
 }
@@ -135,15 +136,17 @@ function playCurrentVid() {
   let currentSlide = mySwiper.slides[index];
   currentVid = currentSlide.querySelector("video");
   muted ? (currentVid.muted = true) : (currentVid.muted = false);
-  let currentBtn = currentSlide.querySelector("button");
-  currentBtn.addEventListener("click", function () {
-    // currentVid.muted = !muted;
 
-    toggleMuted();
-  });
+  let currentBtn = currentSlide.querySelector("button");
+
+  currentBtn.addEventListener("click", handleMuteClick);
   currentVid.play();
   //fav
   let currentHeart = currentSlide.querySelector(".modal-trigger");
+}
+
+function handleMuteClick() {
+  toggleMuted();
 }
 
 function incrementIndexes(plus) {
@@ -181,12 +184,15 @@ console.log(
   "window.location.href ",
   window.location.href
 );
-if (currentLocation.pathname == "/") {
+if (
+  currentLocation.pathname == "/" ||
+  currentLocation.pathname == "/index.html"
+) {
   const splash = document.querySelector(".splash");
   document.addEventListener("DOMContentLoaded", (e) => {
     setTimeout(() => {
       splash.classList.add("display-none");
-    }, 2000);
+    }, 1500);
   });
 } else {
   console.log("no splash screen");
