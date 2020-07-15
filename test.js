@@ -5,32 +5,44 @@ let muteValFromStorage = sessionStorage.getItem("isMuted");
 console.log("muteValFromStorage", muteValFromStorage);
 let muted;
 muteValFromStorage == "true" ? (muted = true) : (muted = false);
-console.log({ muted });
+console.log("muted:", muted);
 let contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
 let currentVid;
 
 function toggleMuted() {
-  console.log("clicked");
   muted = !muted;
-  changeMute();
+  changeMuteVisually();
+  changeMuteSound();
 }
 
-function changeMute() {
+function changeMuteVisually() {
+  console.log("changeMuteVisually()");
   let btns = document.querySelectorAll("button");
   let muteText = document.querySelectorAll(".muted-text");
+  console.log(currentVid);
   if (muted) {
+    console.log("add", "muted:", muted);
     btns.forEach((btn) => {
       btn.classList.add("mute-class");
       btn.innerHTML = ' <i class="fa fa-volume-off"></i>';
     });
     muteText.forEach((mt) => mt.classList.add("mute-class"));
-    currentVid.muted = true;
   } else {
+    console.log("remove", "muted", muted);
     btns.forEach((btn) => {
       btn.classList.remove("mute-class");
       btn.innerHTML = '<i class="fa fa-volume-up"></i>';
     });
     muteText.forEach((mt) => mt.classList.remove("mute-class"));
+  }
+}
+
+function changeMuteSound() {
+  console.log("$$$$$$$$$$$$$$$$$$$$$$");
+
+  if (muted) {
+    currentVid.muted = true;
+  } else {
     currentVid.muted = false;
   }
 }
@@ -40,7 +52,7 @@ var mySwiper = new Swiper(".swiper-container", {
     init: function () {
       let i = contentIndex;
       let allSlides = document.querySelectorAll(".swiper-slide");
-      allSlides.forEach((slide) => {
+      allSlides.forEach((slide, index) => {
         slide.innerHTML = `<div class='swiper-slide' >
         <video  height="100%" id='${contentIndex}' autoplay loop muted playsinline >
         
@@ -105,6 +117,7 @@ var mySwiper = new Swiper(".swiper-container", {
         </div>
   
         `;
+
         i++;
       });
     },
@@ -113,28 +126,24 @@ var mySwiper = new Swiper(".swiper-container", {
 });
 
 playCurrentVid();
+changeMuteVisually();
 mySwiper.setGrabCursor("button");
 
 function playCurrentVid() {
   let allVids = document.querySelectorAll("video");
   allVids.forEach((vid) => vid.pause());
   let currentSlide = mySwiper.slides[index];
-
-  // let currentHeart = currentSlide.querySelector(".modal-trigger");
-  // currentHeart.addEventListener("click", () => {
-  //   addToFavs(arrOfVideos[contentIndex]);
-  //   console.log("click", { local: localStorage.getItem("favVids") });
-  // });
   currentVid = currentSlide.querySelector("video");
   muted ? (currentVid.muted = true) : (currentVid.muted = false);
   let currentBtn = currentSlide.querySelector("button");
+  currentBtn.addEventListener("click", function () {
+    // currentVid.muted = !muted;
 
-  currentBtn.addEventListener("click", () => {
-    currentVid.muted = !muted;
     toggleMuted();
   });
-
   currentVid.play();
+  //fav
+  let currentHeart = currentSlide.querySelector(".modal-trigger");
 }
 
 function incrementIndexes(plus) {
@@ -142,10 +151,12 @@ function incrementIndexes(plus) {
     contentIndex++;
     index++;
     playCurrentVid();
+    console.log("current value of muted:", muted);
   } else {
     contentIndex--;
     index--;
     playCurrentVid();
+    console.log("current value of muted:", muted);
   }
 }
 
@@ -162,18 +173,21 @@ mySwiper.on("slideNextTransitionStart", () => {
   }
 });
 
-// //favs
-// function addToFavs(vid) {
-//   // Get the existing data
-//   let existing = localStorage.getItem("favVids");
-
-//   // If no existing data, create an array
-//   // Otherwise, convert the localStorage string to an array
-//   existing = existing ? existing.split(",") : [];
-
-//   // Add new data to localStorage Array
-//   existing.push(currentVid);
-
-//   // Save back to localStorage
-//   localStorage.setItem("favVids", existing.toString());
-// }
+//splash
+var currentLocation = window.location;
+console.log(
+  "currentLocation",
+  currentLocation,
+  "window.location.href ",
+  window.location.href
+);
+if (currentLocation.pathname == "/") {
+  const splash = document.querySelector(".splash");
+  document.addEventListener("DOMContentLoaded", (e) => {
+    setTimeout(() => {
+      splash.classList.add("display-none");
+    }, 2000);
+  });
+} else {
+  console.log("no splash screen");
+}
