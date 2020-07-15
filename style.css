@@ -77,7 +77,6 @@ body {
   color: var(--white-color);
   font-family: var(--sans-serif-font);
   font-size: 14px;
-
   margin: 0;
   padding: 0;
   background-color: var(--black-color);
@@ -110,9 +109,7 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-
   margin: 0;
-
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -128,7 +125,6 @@ body {
 }
 .intro-screen {
   flex-direction: column;
-
   background-size: cover;
   font-family: "Courier Prime", monospace;
   font-weight: 700;
@@ -181,6 +177,12 @@ body {
   height: 80%;
   padding: 10px 0;
   z-index: 2147483647;
+}
+.mute-btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  opacity: 85%;
 }
 
 .banner {
@@ -295,12 +297,12 @@ video {
   margin: 0 auto;
 }
 
-.videoDisplayNone {
+/* .videoDisplayNone {
   display: none;
 }
 .videoDisplay {
   display: block;
-}
+} */
 .nag-slide {
   padding: 0;
   margin: 0;
@@ -314,4 +316,13 @@ video {
   position: fixed;
   top: 0;
   left: 0;
+}
+.mute-class {
+  color: var(--red-color);
+  text-decoration: line-through;
+}
+@media screen and (min-width: 850px) {
+  .swiper-container {
+    width: 60%;
+  }
 }

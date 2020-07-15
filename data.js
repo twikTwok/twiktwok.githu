@@ -1,4 +1,4 @@
-const arrOfVideosNotRandom = [
+const arrOfVideos = [
   {
     description:
       "Hold my beer while I play some volleyball. https://t.co/fu2e2AWDIP",
@@ -1111,4 +1111,4 @@ const arrOfVideosNotRandom = [
     userUrl: "https://twitter.com/holdmyale",
   },
 ];
-export { arrOfVideosNotRandom };
+export { arrOfVideos };
