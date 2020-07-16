@@ -4,7 +4,7 @@
   "name": "TwikTwok",
   "short_name": "TwikTwok",
   "scope": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "start_url": "https://twiktwok.github.io/index.html",
   "background_color": "#161823",
   "theme_color": "#161823",
