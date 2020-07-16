@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" href="/swiper.min.css" />
     <meta name="theme-color" content="#161823"/>
-    <script type="module" src="serviceWorker1/pwabuilder-sw-register.js"></script>
+
     <link rel="apple-touch-icon" href="/Images/faa1fe83-99b0-6c43-47c3-8b192b3d5344.webPlatform.png">
   </head>
   <body>
@@ -62,7 +62,12 @@
       </div>
     </div>
     </div>
+<script type="module">
+import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
 
+  const el = document.createElement('pwa-update');
+  document.body.appendChild(el);
+  </script>
     <script src="manup.js"></script>
     <script src="/swiper.min.js"></script>
 
