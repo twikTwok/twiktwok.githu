@@ -6,7 +6,6 @@
   --grey-color: #c1c1c1;
   --red-color: #fe2c55;
 
-  /* --sans-serif-font: "Roboto", sans-serif; */
   --sans-serif-font: sans-serif;
   --big-font: 2rem;
   --normal-font: 1rem;
@@ -15,8 +14,8 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+body,
+html {
   position: relative;
   height: 100%;
   font-family: var(--sans-serif-font);
@@ -40,19 +39,14 @@ body {
     text-shadow: -4.5px -4.5px 0 #0ff, 4.5px 4.5px 0 #f00;
   }
   25% {
-    /* font-family: "Courier New", serif; */
-
-    /* font-weight: 700;
-    font-style: normal; */
-
     color: #55acee;
     text-shadow: 4.5px 4.5px 0 #0ff, -4.5px -4.5px 0 #f00;
   }
 }
 
-p,
-i {
-  text-shadow: black 0px 0px 10px;
+i,
+p {
+  text-shadow: var(--black-color) 0px 0px 10px;
 }
 
 body {
@@ -115,7 +109,7 @@ body {
   color: var(--grey-color);
 }
 .bold-span {
-  font-weight: bold;
+  font-weight: 700;
   opacity: 85%;
 }
 
@@ -129,7 +123,7 @@ body {
 #overlay i,
 a {
   margin-bottom: 0px;
-  /* font-size: var(--big-font); */
+
   font-size: 1.9rem;
   opacity: 90%;
 }
@@ -190,7 +184,7 @@ video {
 }
 
 .mute-group:hover {
-  color: red;
+  color: var(--red-color);
 }
 @media screen and (min-width: 850px) {
   .swiper-container {
@@ -202,7 +196,7 @@ video {
     font-size: 3rem;
   }
 }
-/* splash */
+
 .splash {
   position: fixed;
   top: 0;
@@ -210,8 +204,8 @@ video {
   width: 100%;
   height: 100%;
   z-index: 100000;
-  color: white;
-  background: black;
+  color: var(--white-color);
+  background: var(--black-color);
   text-align: center;
   display: flex;
   flex-direction: column;
