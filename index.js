@@ -1,12 +1,12 @@
-// import { arrOfVideos } from "./data.js";
-import { vidData } from "./vidData.js";
+// import { vidData } from "./vidData.js";
+import { vidData } from "./vidData.min.js";
 let arrOfVideos = vidData;
 let index = 0;
 let muteValFromStorage = sessionStorage.getItem("isMuted");
-console.log("muteValFromStorage", muteValFromStorage);
+
 let muted;
 muteValFromStorage == "true" ? (muted = true) : (muted = false);
-console.log("muted:", muted);
+
 let contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
 let currentVid;
 let currentBtn;
@@ -19,10 +19,9 @@ function toggleMuted() {
 }
 
 function changeMuteVisually() {
-  console.log("changeMuteVisually()");
   // let btns = document.querySelectorAll("button");
   // let muteText = document.querySelectorAll(".muted-text");
-  console.log(currentVid);
+
   if (muted) {
     // btns.forEach((btn) => {
     //   btn.classList.add("mute-class");
@@ -170,12 +169,10 @@ function incrementIndexes(plus) {
     contentIndex++;
     index++;
     playCurrentVid();
-    console.log("current value of muted:", muted);
   } else {
     contentIndex--;
     index--;
     playCurrentVid();
-    console.log("current value of muted:", muted);
   }
 }
 
@@ -184,9 +181,9 @@ mySwiper.on("slidePrevTransitionStart", () => {
 });
 mySwiper.on("slideNextTransitionStart", () => {
   incrementIndexes(true);
-
-  if (index == 9) {
-    sessionStorage.setItem("contentNumber", `${contentIndex + 1}`);
+  console.log("index", index);
+  if (index == 15) {
+    sessionStorage.setItem("contentNumber", `${contentIndex}`);
     sessionStorage.setItem("isMuted", `${muted}`);
     window.location.href = "/test2.html";
   }
@@ -194,12 +191,7 @@ mySwiper.on("slideNextTransitionStart", () => {
 
 //splash
 var currentLocation = window.location;
-console.log(
-  "currentLocation",
-  currentLocation,
-  "window.location.href ",
-  window.location.href
-);
+
 if (
   currentLocation.pathname == "/" ||
   currentLocation.pathname == "/index.html"
