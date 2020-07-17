@@ -6,7 +6,8 @@
   --grey-color: #c1c1c1;
   --red-color: #fe2c55;
 
-  --sans-serif-font: "Roboto", sans-serif;
+  /* --sans-serif-font: "Roboto", sans-serif; */
+  --sans-serif-font: sans-serif;
   --big-font: 2rem;
   --normal-font: 1rem;
 }
@@ -21,10 +22,6 @@ body {
   font-family: var(--sans-serif-font);
 }
 
-.fa-chevron-up {
-  font-size: var(--big-font);
-}
-
 .logo {
   color: var(--white-color);
   font-family: var(--sans-serif-font);
@@ -34,22 +31,7 @@ body {
 .logo-bird {
   color: var(--white-color);
   font-size: 3em;
-  animation: animateTwo 1.5s linear infinite;
-}
-.logline {
-  font-size: var(--normal-font);
-}
-@keyframes animateTwo {
-  0%,
-  100% {
-    text-shadow: -4.5px -4.5px 0 #0ff, 4.5px 4.5px 0 #f00;
-  }
-  25% {
-    /* font-weight: 700;
-    font-style: normal; */
-
-    text-shadow: 4.5px 4.5px 0 #0ff, -4.5px -4.5px 0 #f00;
-  }
+  animation: animate 1.5s linear infinite;
 }
 
 @keyframes animate {
@@ -58,7 +40,7 @@ body {
     text-shadow: -4.5px -4.5px 0 #0ff, 4.5px 4.5px 0 #f00;
   }
   25% {
-    font-family: "Courier New", serif;
+    /* font-family: "Courier New", serif; */
 
     /* font-weight: 700;
     font-style: normal; */
@@ -75,31 +57,10 @@ i {
 
 body {
   color: var(--white-color);
-  font-family: var(--sans-serif-font);
-  font-size: 14px;
+  font-size: var(--normal-font);
   margin: 0;
   padding: 0;
   background-color: var(--black-color);
-}
-
-.modal-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-#modalURL {
-  background-color: var(--red-color);
-  margin: var(--normal-font);
-  padding: var(--normal-font);
-  color: white;
-  text-shadow: none;
-  border-radius: 4px;
-}
-#modalURL:hover {
-  background-color: var(--black-color);
-}
-#postName {
-  color: var(--grey-color);
-  font-size: 0.8rem;
 }
 
 .swiper-container {
@@ -224,8 +185,12 @@ video {
 }
 
 .mute-class {
-  color: var(--red-color);
+  color: var(--grey-color);
   text-decoration: line-through;
+}
+
+.mute-group:hover {
+  color: red;
 }
 @media screen and (min-width: 850px) {
   .swiper-container {
@@ -264,9 +229,7 @@ video {
   left: 0;
   width: 100%;
   height: 100%;
-
   z-index: -10;
-
   line-height: 90vh;
   text-align: center;
 }

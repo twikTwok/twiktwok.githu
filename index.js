@@ -101,13 +101,13 @@ var mySwiper = new Swiper(".swiper-container", {
               <p class ="xnumber">${arrOfVideos[i].retweet_count}</p>
              
               </div >
-              <div class="overlay-item">
-          <button  id="muteBtn" class="mute-btn mute-class">
+              <div class="overlay-item ">
+          <button  id="muteBtn" class="mute-btn mute-class ">
             
                 <i class="fa fa-volume-off"></i>
            
           </button>
-          <p class ="xnumber muted-text mute-class">Sound</p>
+          <p class ="xnumber muted-text mute-class ">Sound</p>
             </div>
           
         
