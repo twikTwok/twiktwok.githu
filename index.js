@@ -9,7 +9,8 @@ muteValFromStorage == "true" ? (muted = true) : (muted = false);
 console.log("muted:", muted);
 let contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
 let currentVid;
-
+let currentBtn;
+let currentMuteText;
 function toggleMuted() {
   muted = !muted;
 
@@ -19,23 +20,22 @@ function toggleMuted() {
 
 function changeMuteVisually() {
   console.log("changeMuteVisually()");
-  let btns = document.querySelectorAll("button");
-  let muteText = document.querySelectorAll(".muted-text");
+  // let btns = document.querySelectorAll("button");
+  // let muteText = document.querySelectorAll(".muted-text");
   console.log(currentVid);
   if (muted) {
-    console.log("add", "muted:", muted);
-    btns.forEach((btn) => {
-      btn.classList.add("mute-class");
-      btn.innerHTML = ' <i class="fa fa-volume-off"></i>';
-    });
-    muteText.forEach((mt) => mt.classList.add("mute-class"));
+    // btns.forEach((btn) => {
+    //   btn.classList.add("mute-class");
+    //   btn.innerHTML = ' <i class="fa fa-volume-off"></i>';
+    // });
+    // muteText.forEach((mt) => mt.classList.add("mute-class"));
   } else {
-    console.log("remove", "muted", muted);
-    btns.forEach((btn) => {
-      btn.classList.remove("mute-class");
-      btn.innerHTML = '<i class="fa fa-volume-up"></i>';
-    });
-    muteText.forEach((mt) => mt.classList.remove("mute-class"));
+    // console.log("remove", "muted", muted);
+    // btns.forEach((btn) => {
+    //   btn.classList.remove("mute-class");
+    //   btn.innerHTML = '<i class="fa fa-volume-up"></i>';
+    // });
+    // muteText.forEach((mt) => mt.classList.remove("mute-class"));
   }
 }
 
@@ -136,16 +136,33 @@ function playCurrentVid() {
   currentVid = currentSlide.querySelector("video");
   muted ? (currentVid.muted = true) : (currentVid.muted = false);
 
-  let currentBtn = currentSlide.querySelector("button");
-
+  currentBtn = currentSlide.querySelector("button");
+  currentMuteText = currentSlide.querySelector(".muted-text");
   currentBtn.addEventListener("click", handleMuteClick);
+
   currentVid.play();
   //fav
   let currentHeart = currentSlide.querySelector(".modal-trigger");
 }
 
 function handleMuteClick() {
-  toggleMuted();
+  currentVid.muted = !currentVid.muted;
+  if (currentVid.muted) {
+    currentBtn.innerHTML = '<i class="fa fa-volume-off"></i>';
+
+    currentBtn.classList.add("mute-class");
+    currentMuteText.classList.add("mute-class");
+  } else {
+    currentBtn.innerHTML = '<i class="fa fa-volume-up"></i>';
+
+    currentBtn.classList.remove("mute-class");
+    currentMuteText.classList.remove("mute-class");
+  }
+}
+
+function handleAllMuteClick() {
+  // toggleMuted();
+  //all mute un mute
 }
 
 function incrementIndexes(plus) {
