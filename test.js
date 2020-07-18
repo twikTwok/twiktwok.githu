@@ -1,53 +1,15 @@
-// import { arrOfVideos } from "./data.js";
-import { vidData } from "./vidData.js";
+import { vidData } from "./vidData.min.js";
 let arrOfVideos = vidData;
 let index = 0;
 let muteValFromStorage = sessionStorage.getItem("isMuted");
-console.log("muteValFromStorage", muteValFromStorage);
+
 let muted;
 muteValFromStorage == "true" ? (muted = true) : (muted = false);
-console.log("muted:", muted);
+
 let contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
 let currentVid;
-
-function toggleMuted() {
-  muted = !muted;
-
-  changeMuteVisually();
-  changeMuteSound();
-}
-
-function changeMuteVisually() {
-  console.log("changeMuteVisually()");
-  let btns = document.querySelectorAll("button");
-  let muteText = document.querySelectorAll(".muted-text");
-  console.log(currentVid);
-  if (muted) {
-    console.log("add", "muted:", muted);
-    btns.forEach((btn) => {
-      btn.classList.add("mute-class");
-      btn.innerHTML = ' <i class="fa fa-volume-off"></i>';
-    });
-    muteText.forEach((mt) => mt.classList.add("mute-class"));
-  } else {
-    console.log("remove", "muted", muted);
-    btns.forEach((btn) => {
-      btn.classList.remove("mute-class");
-      btn.innerHTML = '<i class="fa fa-volume-up"></i>';
-    });
-    muteText.forEach((mt) => mt.classList.remove("mute-class"));
-  }
-}
-
-function changeMuteSound() {
-  console.log("$$$$$$$$$$$$$$$$$$$$$$");
-
-  if (muted) {
-    currentVid.muted = true;
-  } else {
-    currentVid.muted = false;
-  }
-}
+let currentBtn;
+let currentMuteText;
 
 var mySwiper = new Swiper(".swiper-container", {
   on: {
@@ -103,13 +65,13 @@ var mySwiper = new Swiper(".swiper-container", {
               <p class ="xnumber">${arrOfVideos[i].retweet_count}</p>
              
               </div >
-              <div class="overlay-item">
-          <button  id="muteBtn" class="mute-btn mute-class">
+              <div class="overlay-item ">
+          <button  id="muteBtn" class="mute-btn mute-class ">
             
                 <i class="fa fa-volume-off"></i>
            
           </button>
-          <p class ="xnumber muted-text mute-class">Sound</p>
+          <p class ="xnumber muted-text mute-class ">Sound</p>
             </div>
           
         
@@ -128,7 +90,7 @@ var mySwiper = new Swiper(".swiper-container", {
 });
 
 playCurrentVid();
-changeMuteVisually();
+
 mySwiper.setGrabCursor("button");
 
 function playCurrentVid() {
@@ -138,16 +100,28 @@ function playCurrentVid() {
   currentVid = currentSlide.querySelector("video");
   muted ? (currentVid.muted = true) : (currentVid.muted = false);
 
-  let currentBtn = currentSlide.querySelector("button");
-
+  currentBtn = currentSlide.querySelector("button");
+  currentMuteText = currentSlide.querySelector(".muted-text");
   currentBtn.addEventListener("click", handleMuteClick);
+
   currentVid.play();
   //fav
   let currentHeart = currentSlide.querySelector(".modal-trigger");
 }
 
 function handleMuteClick() {
-  toggleMuted();
+  currentVid.muted = !currentVid.muted;
+  if (currentVid.muted) {
+    currentBtn.innerHTML = '<i class="fa fa-volume-off"></i>';
+
+    currentBtn.classList.add("mute-class");
+    currentMuteText.classList.add("mute-class");
+  } else {
+    currentBtn.innerHTML = '<i class="fa fa-volume-up"></i>';
+
+    currentBtn.classList.remove("mute-class");
+    currentMuteText.classList.remove("mute-class");
+  }
 }
 
 function incrementIndexes(plus) {
@@ -155,12 +129,10 @@ function incrementIndexes(plus) {
     contentIndex++;
     index++;
     playCurrentVid();
-    console.log("current value of muted:", muted);
   } else {
     contentIndex--;
     index--;
     playCurrentVid();
-    console.log("current value of muted:", muted);
   }
 }
 
@@ -169,32 +141,10 @@ mySwiper.on("slidePrevTransitionStart", () => {
 });
 mySwiper.on("slideNextTransitionStart", () => {
   incrementIndexes(true);
-
+  console.log("index", index);
   if (index == 9) {
-    sessionStorage.setItem("contentNumber", `${contentIndex + 1}`);
+    sessionStorage.setItem("contentNumber", `${contentIndex}`);
     sessionStorage.setItem("isMuted", `${muted}`);
     window.location.href = "/test2.html";
   }
 });
-
-//splash
-var currentLocation = window.location;
-console.log(
-  "currentLocation",
-  currentLocation,
-  "window.location.href ",
-  window.location.href
-);
-if (
-  currentLocation.pathname == "/" ||
-  currentLocation.pathname == "/index.html"
-) {
-  const splash = document.querySelector(".splash");
-  document.addEventListener("DOMContentLoaded", (e) => {
-    setTimeout(() => {
-      splash.classList.add("display-none");
-    }, 1500);
-  });
-} else {
-  console.log("no splash screen");
-}

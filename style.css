@@ -227,3 +227,9 @@ video {
   line-height: 90vh;
   text-align: center;
 }
+.offline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

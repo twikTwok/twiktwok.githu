@@ -1,6 +1,7 @@
 // import { vidData } from "./vidData.js";
-import { vidData } from "./vidData.min.js";
-let arrOfVideos = vidData;
+// import { vidData } from "./vidData.min.js";
+import { firstVids } from "./firstVids.js";
+let arrOfVideos = firstVids;
 let index = 0;
 let muteValFromStorage = sessionStorage.getItem("isMuted");
 
@@ -182,7 +183,7 @@ mySwiper.on("slidePrevTransitionStart", () => {
 mySwiper.on("slideNextTransitionStart", () => {
   incrementIndexes(true);
   console.log("index", index);
-  if (index == 15) {
+  if (index == 9) {
     sessionStorage.setItem("contentNumber", `${contentIndex}`);
     sessionStorage.setItem("isMuted", `${muted}`);
     window.location.href = "/test2.html";
