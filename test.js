@@ -98,15 +98,14 @@ function playCurrentVid() {
   allVids.forEach((vid) => vid.pause());
   let currentSlide = mySwiper.slides[index];
   currentVid = currentSlide.querySelector("video");
-  muted ? (currentVid.muted = true) : (currentVid.muted = false);
-
+  currentVid.currentTime = 0;
+  // muted ? (currentVid.muted = true) : (currentVid.muted = false);
   currentBtn = currentSlide.querySelector("button");
   currentMuteText = currentSlide.querySelector(".muted-text");
   currentBtn.addEventListener("click", handleMuteClick);
-
   currentVid.play();
   //fav
-  let currentHeart = currentSlide.querySelector(".modal-trigger");
+  // let currentHeart = currentSlide.querySelector(".modal-trigger");
 }
 
 function handleMuteClick() {
@@ -129,6 +128,7 @@ function incrementIndexes(plus) {
     contentIndex++;
     index++;
     playCurrentVid();
+    console.log(contentIndex);
   } else {
     contentIndex--;
     index--;
@@ -141,10 +141,11 @@ mySwiper.on("slidePrevTransitionStart", () => {
 });
 mySwiper.on("slideNextTransitionStart", () => {
   incrementIndexes(true);
-  console.log("index", index);
-  if (index == 9) {
+  if (index == 29) {
     sessionStorage.setItem("contentNumber", `${contentIndex}`);
     sessionStorage.setItem("isMuted", `${muted}`);
-    window.location.href = "/test2.html";
+    // window.location.href = "/test2.html";
+    location.reload();
   }
+  console.log("index", index);
 });

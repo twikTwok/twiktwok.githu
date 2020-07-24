@@ -4,7 +4,7 @@
    
     <link rel='manifest' href='/manifest.json'>
     <script type="module" src="index.js"></script>
-    <meta name="description" content="Swipe through videos from twitter">,
+    <meta name="description" content="Swipe through videos from twitter">
  
     <script
       src="https://kit.fontawesome.com/aae682fcfb.js"
@@ -21,9 +21,18 @@
     <meta name="theme-color" content="#161823"/>
 
     <link rel="apple-touch-icon" href="icon-512x512.png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159987383-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159987383-6');
+</script>
   </head>
   <body>
-
+    
     <div class="splash">
 <div class="splash-content">
   <p>
@@ -40,7 +49,7 @@
     </div>
     <div class="swiper-container">
       <div class="swiper-wrapper" id="swiper-main">
-        <div class="swiper-slide" ><i class="fa fa-twitter logo-bird" aria-hidden="true"></i></div>
+        <div class="swiper-slide" ><i class="fa fa-twitter logo-bird" aria-hidden="true"></i> Loading</div>
         <div class="swiper-slide">Slide 1</div>
         <div class="swiper-slide">Slide 2</div>
         <div class="swiper-slide">Slide 3</div>

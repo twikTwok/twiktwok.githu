@@ -12,40 +12,40 @@ let contentIndex = parseInt(sessionStorage.getItem("contentNumber"));
 let currentVid;
 let currentBtn;
 let currentMuteText;
-function toggleMuted() {
-  muted = !muted;
+// function toggleMuted() {
+//   muted = !muted;
 
-  changeMuteVisually();
-  changeMuteSound();
-}
+//   changeMuteVisually();
+//   changeMuteSound();
+// }
 
-function changeMuteVisually() {
-  // let btns = document.querySelectorAll("button");
-  // let muteText = document.querySelectorAll(".muted-text");
+// function changeMuteVisually() {
+//   // let btns = document.querySelectorAll("button");
+//   // let muteText = document.querySelectorAll(".muted-text");
 
-  if (muted) {
-    // btns.forEach((btn) => {
-    //   btn.classList.add("mute-class");
-    //   btn.innerHTML = ' <i class="fa fa-volume-off"></i>';
-    // });
-    // muteText.forEach((mt) => mt.classList.add("mute-class"));
-  } else {
-    // console.log("remove", "muted", muted);
-    // btns.forEach((btn) => {
-    //   btn.classList.remove("mute-class");
-    //   btn.innerHTML = '<i class="fa fa-volume-up"></i>';
-    // });
-    // muteText.forEach((mt) => mt.classList.remove("mute-class"));
-  }
-}
+//   if (muted) {
+//     // btns.forEach((btn) => {
+//     //   btn.classList.add("mute-class");
+//     //   btn.innerHTML = ' <i class="fa fa-volume-off"></i>';
+//     // });
+//     // muteText.forEach((mt) => mt.classList.add("mute-class"));
+//   } else {
+//     // console.log("remove", "muted", muted);
+//     // btns.forEach((btn) => {
+//     //   btn.classList.remove("mute-class");
+//     //   btn.innerHTML = '<i class="fa fa-volume-up"></i>';
+//     // });
+//     // muteText.forEach((mt) => mt.classList.remove("mute-class"));
+//   }
+// }
 
-function changeMuteSound() {
-  if (muted) {
-    currentVid.muted = true;
-  } else {
-    currentVid.muted = false;
-  }
-}
+// function changeMuteSound() {
+//   if (muted) {
+//     currentVid.muted = true;
+//   } else {
+//     currentVid.muted = false;
+//   }
+// }
 
 var mySwiper = new Swiper(".swiper-container", {
   on: {
@@ -126,7 +126,7 @@ var mySwiper = new Swiper(".swiper-container", {
 });
 
 playCurrentVid();
-changeMuteVisually();
+// changeMuteVisually();
 mySwiper.setGrabCursor("button");
 
 function playCurrentVid() {
@@ -134,7 +134,7 @@ function playCurrentVid() {
   allVids.forEach((vid) => vid.pause());
   let currentSlide = mySwiper.slides[index];
   currentVid = currentSlide.querySelector("video");
-  muted ? (currentVid.muted = true) : (currentVid.muted = false);
+  // muted ? (currentVid.muted = true) : (currentVid.muted = false);
 
   currentBtn = currentSlide.querySelector("button");
   currentMuteText = currentSlide.querySelector(".muted-text");
